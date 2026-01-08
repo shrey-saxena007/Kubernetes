@@ -49,7 +49,7 @@ kubectl → kube-apiserver → cluster
 ### 2.2 **etcd**
 
 📦 **Key-value database**
-
+* It is a key-value store of a Cluster. The Cluster State Changes get stored in the etcd. It acts as the Cluster brain because it tells the Scheduler and other processes about which resources are available and about cluster state changes.
 * Stores all cluster data:
 
   * Pods
@@ -67,6 +67,7 @@ If etcd is lost → cluster state is lost ⚠️
 🧭 Decides **where a Pod runs**
 
 * Chooses the best worker node to a newly created pods
+* When API Server receives a request for Scheduling Pods then the request is passed on to the Scheduler. It intelligently decides on which node to schedule the pod for better efficiency of the cluster.
 * means assign n
 * Considers:
 
@@ -120,19 +121,14 @@ These components **run your applications**.
 * Talks to kube-apiserver
 * Ensures containers are running in a pod
 * Reports node & pod status
+*  kubelet interacts with both the container runtime as well as the Node. It is the process responsible for starting a pod with a container inside.
+
 
 ---
 
 ### 3.2 **Container Runtime**
 
-📦 A tool which runs containers
-
-Examples: 
-
-* containerd
-* CRI-O
-* Docker
-
+A container runtime is needed to run the application containers running on pods inside a pod. Example-> Docker
 ---
 
 ### 3.3 **kube-proxy**
