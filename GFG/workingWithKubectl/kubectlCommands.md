@@ -173,36 +173,14 @@ Once you adopt Kubernetes:
 * **Pods are your scaling unit**
 * **EC2s are just capacity providers**
 
----
 
 ## 6️⃣ Final Rule of Thumb (Very Important)
 
 > **Kubernetes scales applications (Pods)**
 > **AWS scales infrastructure (EC2 Nodes)**
 
----
-
-## 7️⃣ Real-world recommended setup (EKS)
-
-| Concern                | Tool                           |
-| ---------------------- | ------------------------------ |
-| App scaling            | HPA                            |
-| Infrastructure scaling | Cluster Autoscaler / Karpenter |
-| External traffic       | ALB + Ingress                  |
-| Internal traffic       | Kubernetes Service             |
-| Deployment strategy    | Deployment / StatefulSet       |
-
----
 
 ## 8️⃣ One-line answer to your question
 
 > **Apply scaling and load balancing primarily at the Kubernetes Pod level, and let Kubernetes automatically trigger EC2 scaling only when required.**
 
-If you want, next I can:
-
-* Draw a **diagram**
-* Compare **ECS vs EKS**
-* Explain **Ingress vs Service**
-* Show **exact YAML examples**
-
-Just tell me 👍
